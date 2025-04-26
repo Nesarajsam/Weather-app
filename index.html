@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Westher App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img src="./assert/search.png" alt=""></button>
+        </div>
+        <div class="weather">
+            <img src="./assert/rain.png" class="weather-icon" alt="">
+            <h1 class="temp">22°c</h1>
+            <h2 class="city">New york</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="./assert/humidity.png" alt="">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="./assert/wind.png" alt="">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const apiKey="44998495dd70f4c4a2fe3133c2b4e3f2";
+        const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangalore";
+        async function  checkweather(){
+            const response=await fetch(apiUrl + '&appid=${apiKey}');
+            var data= await response.json();
+
+            console.log(data);
+        }
+
+        checkweather();
+    </script>
+    
+</body>
+</html>
